@@ -1,22 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Smooch+Sans:wght@100..900&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f8f8f8;
-        /* background: linear-gradient(-45deg, #ee7752, #59c5ef, #23a6d5, #4cade9);
+    /* background: linear-gradient(-45deg, #ee7752, #59c5ef, #23a6d5, #4cade9);
              background-size: 400% 400%;
             animation: gradient 15s ease infinite;  */
 }
+
 /* 
 @keyframes gradient {
     0% {
@@ -32,7 +34,7 @@ body{
     }
 } */
 
-.container{
+.container {
     display: flex;
     width: 1401px;
     height: 700px;
@@ -41,43 +43,43 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.container-login{
+.container-login {
     width: 718px;
     position: relative;
 }
 
-.login-title{
+.login-title {
     max-width: 347px;
     max-height: 105px;
     margin: 87.5px 0 0 237px;
     text-align: center;
     /* background: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
-    
+
 }
 
-.login-title .title{
+.login-title .title {
     font-size: 120px;
-    font-family: "Smooch Sans",sans-serif;
+    font-family: "Smooch Sans", sans-serif;
     line-height: 90px;
     font-weight: bold;
 }
 
-.login-title .detail{
+.login-title .detail {
     font-size: 14px;
 }
 
-.form{
+.form {
     width: 364px;
     height: 204px;
     margin: 24px 0 0 228.5px;
 }
 
-.input-group{
+.input-group {
     position: relative;
 }
 
-.input-group input{
+.input-group input {
     width: 364px;
     height: 52px;
     color: #1C1C1C;
@@ -91,7 +93,7 @@ body{
     outline: none;
 }
 
-.input-group img{
+.input-group img {
     position: absolute;
     left: 18px;
     top: 10px;
@@ -99,7 +101,8 @@ body{
     width: 25px;
 }
 
-#hidden-eyes{
+#hidden-eyes, 
+#hidden-eyes-confirm {
     position: absolute;
     right: 30px;
     top: 3px;
@@ -120,13 +123,16 @@ body{
     margin-top: 5px;
 } */
 
-#usernameFeedback, #passwordFeedback {
+#usernameFeedback,
+#passwordFeedback,
+#emailFeedback,
+#confirmPasswordFeedback {
     position: absolute;
     bottom: 5px;
     left: 15px;
 }
 
-.form button{
+.form button {
     width: 364px;
     height: 52px;
     border-radius: 10px;
@@ -134,29 +140,26 @@ body{
     color: #FFFFFF;
     font-weight: bold;
     font-size: 12px;
+    cursor: pointer;
 }
 
-.login-other{
+.login-other {
     width: 364px;
     height: 168px;
     margin: 24px 0 0 228.5px;
     text-align: center;
 }
 
-.login-other-items{
-    width: 100%;
-    border: 1px solid #1C1C1C;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    padding: 14px 0;
-    margin-bottom: 16px;
-    background-color: #fff;
-    width: 364px;
-    height: 52px;
+
+.container-login button:disabled {
+    background-color: #1C1C1C;
+    cursor: not-allowed;
 }
-.login-other-items, .form button:hover{
-    cursor: pointer;
+
+.login-other-title {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
 }
 
 .container-login button:disabled {
@@ -164,28 +167,13 @@ body{
     cursor: not-allowed;
 }
 
-.login-other-title{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-}
-
-#register{
-    cursor: pointer;
-}
-
-.login-other-items img{
-    width: 24px;
-    margin-right: 5px;
-}
-
-.vector{
+.vector {
     position: absolute;
     left: 0px;
     bottom: 40px;
 }
 
-.container-banner{
+.container-banner {
     width: 683px;
 }
 

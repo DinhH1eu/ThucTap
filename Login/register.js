@@ -4,9 +4,15 @@ const togglePasswordIcon = document.querySelector('.toggle-password');
 const loginButton = document.getElementById('loginButton');
 const usernameFeedback = document.getElementById('usernameFeedback');
 const passwordFeedback = document.getElementById('passwordFeedback');
+const emailInput = document.getElementById('email');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+const emailFeedback = document.getElementById('emailFeedback');
+const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
 
 let isUsernameValid = false;
 let isPasswordValid = false;
+let isEmailValid = false;
+let isConfirmPasswordValid = false;
 
 function validateUsername() {
     const username = usernameInput.value.trim();
@@ -27,7 +33,7 @@ function validateUsername() {
         usernameFeedback.className = 'success';
         isUsernameValid = true;
     }
-    toggleLoginButton();
+    toggleRegisterButton();
 }
 
 function validatePassword() {
@@ -57,16 +63,49 @@ function validatePassword() {
         // passwordFeedback.className = 'success';
         isPasswordValid = true;
     }
-    toggleLoginButton();
+    toggleRegisterButton();
+}
+
+function validateEmail() {
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Biểu thức kiểm tra email
+    if (email === "") {
+        emailFeedback.innerText = "";
+        isEmailValid = false;
+    } else if (!emailRegex.test(email)) {
+        emailFeedback.innerText = 'Email không hợp lệ.';
+        emailFeedback.className = 'error';
+        isEmailValid = false;
+    } else {
+        emailFeedback.innerText = "";
+        isEmailValid = true;
+    }
+    toggleRegisterButton();
+}
+
+function validateConfirmPassword() {
+    const password = passwordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+    if (confirmPassword === "") {
+        confirmPasswordFeedback.innerText = "";
+        isConfirmPasswordValid = false;
+    } else if (password !== confirmPassword) {
+        confirmPasswordFeedback.innerText = 'Mật khẩu xác nhận không khớp.';
+        confirmPasswordFeedback.className = 'error';
+        isConfirmPasswordValid = false;
+    } else {
+        confirmPasswordFeedback.innerText = "";
+        isConfirmPasswordValid = true;
+    }
+    toggleRegisterButton();
 }
 
 $(document).ready(function () {
+    // Toggle visibility for the "Password" field
     $("#hidden-eyes").click(function () {
-        // Lấy phần tử input
         const passwordInput = $("#password");
         const toggleIcon = $("#toggle-password");
 
-        // Kiểm tra loại input và thay đổi
         const inputType = passwordInput.attr("type");
         if (inputType === "password") {
             passwordInput.attr("type", "text");
@@ -78,9 +117,26 @@ $(document).ready(function () {
             toggleIcon.attr("alt", "Show Password");
         }
     });
+
+    // Toggle visibility for the "Confirm Password" field
+    $("#hidden-eyes-confirm").click(function () {
+        const confirmPasswordInput = $("#confirmPassword");
+        const toggleConfirmIcon = $("#toggle-confirm-password");
+
+        const inputType = confirmPasswordInput.attr("type");
+        if (inputType === "password") {
+            confirmPasswordInput.attr("type", "text");
+            toggleConfirmIcon.attr("src", "hidden.png"); // Đổi sang biểu tượng "ẩn"
+            toggleConfirmIcon.attr("alt", "Hide Password");
+        } else {
+            confirmPasswordInput.attr("type", "password");
+            toggleConfirmIcon.attr("src", "eye.png"); // Đổi sang biểu tượng "hiện"
+            toggleConfirmIcon.attr("alt", "Show Password");
+        }
+    });
 });
 
 
-function toggleLoginButton() {
-    loginButton.disabled = !(isUsernameValid && isPasswordValid);
+function toggleRegisterButton() {
+    registerButton.disabled = !(isUsernameValid && isPasswordValid && isEmailValid && isConfirmPasswordValid);
 }

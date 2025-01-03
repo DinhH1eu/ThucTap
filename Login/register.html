@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="container-login">
             <div class="login-title">
-                <p class="title">Welcome</p>
-                <p class="detail">We are glad to see you back with us</p>
+                <p class="title">SIGN UP</p>
             </div>
             <form action="" method="post" class="form">
                 <div class="input-group">
@@ -22,33 +23,31 @@
                     <div id="usernameFeedback" class="error"></div>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" name="password" id="" placeholder="Password" oninput="validatePassword()">
+                    <input type="email" name="email" id="email" placeholder="Email" oninput="validateEmail()">
+                    <img src="/mail.png" class="icon-left" alt="">
+                    <div id="emailFeedback" class="error"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password"oninput="validatePassword()">
                     <img src="/user-password.png" class="icon-left" alt="">
                     <div id="hidden-eyes"><img src="/eye.png" id="toggle-password" onclick="togglePassword()"></div>
                     <div id="passwordFeedback" class="error"></div>
                 </div>
-                <button type="button" id="loginButton" disabled>LOGIN</button>
-            </form>
-            <div class="login-other">
-                <div class="login-other-title">
-                    <p><b>Login</b> with Others</p>
-                    <p id="register"><b>Register</b></p>
+                <div class="input-group">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" oninput="validateConfirmPassword()">
+                    <img src="/user-password.png" class="icon-left" alt="">
+                    <div id="hidden-eyes-confirm"><img src="/eye.png" id="toggle-confirm-password" onclick="togglePasswordVisibility()"></div>
+                    <div id="confirmPasswordFeedback" class="error"></div>
                 </div>
-                <button class="login-other-items">
-                    <img src="/google.png" alt="">
-                    <p>Login with <b>Google</b></p>
-                </button>
-                <button class="login-other-items">
-                    <img src="/facebook.png" alt="">
-                    <p>Login with <b>Facebook</b></p>
-                </button>
-            </div>
+                <button type="button" id="registerButton" disabled>SIGN UP</button>
+            </form>
             <img class="vector" src="/Vector (1).png" alt="">
         </div>
         <div class="container-banner">
             <img src="/banner.png" alt="">
         </div>
-        <script src="/index.js"></script>
+        <script src="/register.js"></script>
     </div>
 </body>
+
 </html>
